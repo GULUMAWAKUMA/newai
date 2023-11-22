@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: newai-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: newai
+  template:
+    metadata:
+      labels:
+        app: newai
+    spec:
+      containers:
+      - name: newai
+        image: guluma/newai:latest
+        ports:
+        - containerPort: 80
